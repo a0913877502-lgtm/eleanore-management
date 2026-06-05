@@ -2548,21 +2548,21 @@ function updateFinNav(){
 
 // ══ FINANCE DATA ══
 let ledger=[
-  {id:8001,date:'2025-07-01',type:'income',cat:'營業收入',dept:'全公司',amt:850000,note:'7月份業績收入',by:'系統管理員'},
-  {id:8002,date:'2025-07-05',type:'expense',cat:'薪資支出',dept:'全公司',amt:420000,note:'7月份薪資',by:'系統管理員'},
-  {id:8003,date:'2025-07-05',type:'expense',cat:'租金',dept:'全公司',amt:85000,note:'辦公室+門市租金',by:'系統管理員'},
-  {id:8004,date:'2025-07-10',type:'expense',cat:'行銷費用',dept:'行銷設計',amt:32000,note:'社群廣告投放',by:'系統管理員'},
-  {id:8005,date:'2025-07-12',type:'expense',cat:'辦公費用',dept:'全公司',amt:8500,note:'文具耗材採購',by:'王小明'},
-  {id:8006,date:'2025-07-15',type:'income',cat:'其他收入',dept:'全公司',amt:15000,note:'設備出租收入',by:'系統管理員'},
-  {id:8007,date:'2025-07-18',type:'expense',cat:'業務費用',dept:'業務部',amt:18000,note:'客戶接待費用',by:'系統管理員'},
-  {id:8008,date:'2025-07-20',type:'expense',cat:'清潔維護費',dept:'全公司',amt:12000,note:'7月清潔服務費',by:'系統管理員'},
-  {id:8009,date:'2025-06-01',type:'income',cat:'營業收入',dept:'全公司',amt:780000,note:'6月份業績收入',by:'系統管理員'},
-  {id:8010,date:'2025-06-05',type:'expense',cat:'薪資支出',dept:'全公司',amt:420000,note:'6月份薪資',by:'系統管理員'},
-  {id:8011,date:'2025-06-05',type:'expense',cat:'租金',dept:'全公司',amt:85000,note:'辦公室+門市租金',by:'系統管理員'},
-  {id:8012,date:'2025-06-15',type:'expense',cat:'行銷費用',dept:'行銷設計',amt:25000,note:'展覽活動費用',by:'系統管理員'},
-  {id:8013,date:'2025-05-01',type:'income',cat:'營業收入',dept:'全公司',amt:920000,note:'5月份業績收入',by:'系統管理員'},
-  {id:8014,date:'2025-05-05',type:'expense',cat:'薪資支出',dept:'全公司',amt:420000,note:'5月份薪資',by:'系統管理員'},
-  {id:8015,date:'2025-05-05',type:'expense',cat:'租金',dept:'全公司',amt:85000,note:'辦公室+門市租金',by:'系統管理員'},
+  {id:8001,date:'2025-07-01',type:'income',cat:'銷貨收入',dept:'全公司',amt:850000,note:'7月份業績收入',by:'系統管理員'},
+  {id:8002,date:'2025-07-05',type:'expense',cat:'薪資費用',dept:'全公司',amt:420000,note:'7月份薪資',by:'系統管理員'},
+  {id:8003,date:'2025-07-05',type:'expense',cat:'租金費用',dept:'全公司',amt:85000,note:'辦公室+門市租金',by:'系統管理員'},
+  {id:8004,date:'2025-07-10',type:'expense',cat:'廣告費',dept:'行銷設計',amt:32000,note:'社群廣告投放',by:'系統管理員'},
+  {id:8005,date:'2025-07-12',type:'expense',cat:'文具用品',dept:'全公司',amt:8500,note:'文具耗材採購',by:'王小明'},
+  {id:8006,date:'2025-07-15',type:'income',cat:'租金收入',dept:'全公司',amt:15000,note:'設備出租收入',by:'系統管理員'},
+  {id:8007,date:'2025-07-18',type:'expense',cat:'交際費',dept:'業務部',amt:18000,note:'客戶接待費用',by:'系統管理員'},
+  {id:8008,date:'2025-07-20',type:'expense',cat:'修繕費',dept:'全公司',amt:12000,note:'7月清潔服務費',by:'系統管理員'},
+  {id:8009,date:'2025-06-01',type:'income',cat:'銷貨收入',dept:'全公司',amt:780000,note:'6月份業績收入',by:'系統管理員'},
+  {id:8010,date:'2025-06-05',type:'expense',cat:'薪資費用',dept:'全公司',amt:420000,note:'6月份薪資',by:'系統管理員'},
+  {id:8011,date:'2025-06-05',type:'expense',cat:'租金費用',dept:'全公司',amt:85000,note:'辦公室+門市租金',by:'系統管理員'},
+  {id:8012,date:'2025-06-15',type:'expense',cat:'廣告費',dept:'行銷設計',amt:25000,note:'展覽活動費用',by:'系統管理員'},
+  {id:8013,date:'2025-05-01',type:'income',cat:'銷貨收入',dept:'全公司',amt:920000,note:'5月份業績收入',by:'系統管理員'},
+  {id:8014,date:'2025-05-05',type:'expense',cat:'薪資費用',dept:'全公司',amt:420000,note:'5月份薪資',by:'系統管理員'},
+  {id:8015,date:'2025-05-05',type:'expense',cat:'租金費用',dept:'全公司',amt:85000,note:'辦公室+門市租金',by:'系統管理員'},
 ];
 let salaries=[
   {id:7001,month:'2025-07',emp:'王小明',dept:'行銷設計',base:45000,bonus:3000,deduct:0,net:48000,status:'paid',paidDate:'2025-07-25',note:''},
@@ -2571,8 +2571,8 @@ let salaries=[
   {id:7004,month:'2025-06',emp:'李美麗',dept:'美容部',base:42000,bonus:5000,deduct:0,net:47000,status:'paid',paidDate:'2025-06-25',note:'業績獎金'},
 ];
 let eLdgId=null,eSalId=null;
-const INCOME_CATS=['營業收入','其他收入'];
-const EXPENSE_CATS=['薪資支出','租金','辦公費用','業務費用','行銷費用','清潔維護費','設備採購','雜支'];
+const INCOME_CATS=['銷貨收入','服務收入','租金收入','利息收入','其他收入'];
+const EXPENSE_CATS=['薪資費用','勞健保費用','租金費用','水電費','通訊費','辦公費用','文具用品','廣告費','交際費','旅費','運費','進貨成本','原料採購','包裝費','研發費用','修繕費','折舊費用','保險費','稅捐','雜費'];
 
 // ══ FINANCE OVERVIEW ══
 function initFinYear(){
