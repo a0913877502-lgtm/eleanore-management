@@ -1134,8 +1134,8 @@ tbody td{padding:7px 10px;vertical-align:middle}
       <div class="fr">
         <div class="fg"><label>科目</label>
           <select id="ldg-cat">
-            <optgroup label="收入科目"><option>營業收入</option><option>其他收入</option></optgroup>
-            <optgroup label="支出科目"><option>薪資支出</option><option>租金</option><option>辦公費用</option><option>業務費用</option><option>行銷費用</option><option>清潔維護費</option><option>設備採購</option><option>雜支</option></optgroup>
+            <optgroup label="收入科目"><option>銷貨收入</option><option>服務收入</option><option>租金收入</option><option>利息收入</option><option>其他收入</option></optgroup>
+            <optgroup label="支出科目"><option>薪資費用</option><option>勞健保費用</option><option>租金費用</option><option>水電費</option><option>通訊費</option><option>辦公費用</option><option>文具用品</option><option>廣告費</option><option>交際費</option><option>旅費</option><option>運費</option><option>進貨成本</option><option>原料採購</option><option>包裝費</option><option>研發費用</option><option>修繕費</option><option>折舊費用</option><option>保險費</option><option>稅捐</option><option>雜費</option></optgroup>
           </select>
         </div>
         <div class="fg"><label>部門歸屬</label>
@@ -2734,7 +2734,7 @@ function openLedgerModal(id){
   const t=document.getElementById('ldg-m-t');if(t)t.textContent=l?'編輯收支記錄':'新增收支記錄';
   document.getElementById('ldg-dt').value=l?l.date:today;
   document.getElementById('ldg-type').value=l?l.type:'expense';
-  document.getElementById('ldg-cat').value=l?l.cat:'薪資支出';
+  document.getElementById('ldg-cat').value=l?l.cat:'薪資費用';
   document.getElementById('ldg-dept').value=l?l.dept:'全公司';
   document.getElementById('ldg-amt').value=l?l.amt:'';
   document.getElementById('ldg-by').value=CU.name;
