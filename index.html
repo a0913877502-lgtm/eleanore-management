@@ -1427,22 +1427,7 @@ function quickSwitch(){
   const pop=document.createElement('div');
   pop.id='sw-popup';
   pop.setAttribute('style','position:fixed;bottom:60px;left:10px;width:200px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow-lg);z-index:300;overflow:hidden;animation:mi .15s ease');
-  let html='<div style="padding:8px 12px;font-size:10px;font-weight:700;color:var(--text3);letter-spacing:1px;border-bottom:1px solid var(--border)">切換至</div>';
-  all.forEach(a=>{
-    const d=document.createElement('div');
-    d.setAttribute('style','padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border)');
-    d.innerHTML='<div style="font-size:13px;font-weight:600;color:var(--text)">'+a.label+'</div><div style="font-size:10px;color:var(--text3)">'+a.role+'</div>';
-    d.onmouseover=()=>d.style.background='var(--surface)';
-    d.onmouseout=()=>d.style.background='';
-    d.onclick=()=>doSwitch(a.username);
-    pop.appendChild(d);
-  });
-  const cancel=document.createElement('div');
-  cancel.setAttribute('style','padding:8px 12px;text-align:center;font-size:11px;color:var(--text3);cursor:pointer');
-  cancel.textContent='取消';
-  cancel.onclick=()=>pop.remove();
-  pop.appendChild(cancel);
-  pop.innerHTML=html;
+  pop.innerHTML='<div style="padding:8px 12px;font-size:10px;font-weight:700;color:var(--text3);letter-spacing:1px;border-bottom:1px solid var(--border)">切換至</div>';
   all.forEach(a=>{
     const d=document.createElement('div');
     d.setAttribute('style','padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border)');
@@ -1499,7 +1484,7 @@ function initApp(){
   if(mobSub)mobSub.textContent=CU.name+' · '+(isAdmin()?'管理者':CU.dept||'員工');
   renderAll();gp(0);
 }
-function renderAll(){renderPJ();renderDiary();renderPur();renderMtg();renderEQ();renderRP();renderVD();renderUS();renderCLR('hq');renderCLR('st');updateBadges();if($i('cal-grid'))renderCal();updateFinNav();if(typeof renderCal!=='undefined'&&$i('cal-grid'))renderCal();}
+function renderAll(){renderPJ();renderDiary();renderPur();renderMtg();renderEQ();renderRP();renderVD();renderUS();renderCLR('hq');renderCLR('st');updateBadges();if($i('cal-grid'))renderCal();updateFinNav();}
 function updateBadges(){
   // Purchase badge: admin=pending+mgr_ok, employee=own pending
   const puCnt=isAdmin()?purchases.filter(p=>p.apst==='pending'||p.apst==='mgr_ok').length:purchases.filter(p=>p.applicant===CU.name&&p.apst==='pending').length;
@@ -2248,7 +2233,7 @@ function openRpVendorModal(id){
       </div>
       <div style="padding:10px 17px;border-top:1px solid var(--border);display:flex;gap:7px;justify-content:flex-end">
         <button class="btn btn-outline" onclick="closeRpVM()">取消</button>
-        <button class="btn btn-blue" onclick="submitRpV(${id||'null'})">儲存</button>
+        <button class="btn btn-blue" onclick="submitRpV(${id||null})">儲存</button>
       </div>
     </div>
   </div>`;
@@ -3173,7 +3158,7 @@ function getCuName(id){const c=customers.find(x=>x.id===id);return c?c.name:'—
 function getSalespeople(){return [...new Set([...orders.map(o=>o.owner),...followups.map(f=>f.person),...targets.map(t=>t.person)])].filter(Boolean);}
 function initSalesDropdowns(){
   // Populate salesperson dropdowns with user list (sales-related users)
-  const salesPeople=USERS.filter(u=>!u.disabled&&u.role!=='admin'||u.role==='admin').map(u=>u.name);
+  const salesPeople=USERS.filter(u=>!u.disabled).map(u=>u.name);
   ['sv-person','op-person-f','ord-person-f','fu-person-f','tgt-person'].forEach(id=>{
     const sel=document.getElementById(id);if(!sel)return;
     const cur=sel.value;
